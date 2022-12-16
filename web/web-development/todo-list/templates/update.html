@@ -1,0 +1,50 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Todo List{% endblock %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="{{ url_for('home') }}"></a><h1 class="display-4">Update Todo</h1></a>
+    <div class="form">
+      <form action="{{ url_for('update_task', id=task_id) }}", method="POST">
+        {{ form.task(size=28, class_='task-entry', placeholder='Enter your task') }}
+        {{ form.submit(class_='btn btn-warning btn-lg task-submit') }}
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="overlay"></div>
+  <div class="container-table">
+    {% if num_tasks > 0 %}
+    <table class="table">
+      <tr>
+        <th>Todo Description</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+      {% for task in tasks %}
+      {% if task.id == task_id %}
+      <tr style="background-color: antiquewhite;">
+      {% else %}
+      <tr>
+      {% endif %}
+        <td>{{ task.description }}</td>
+        <td>{{ task.date }}</td>
+        <td>
+          <a href="{{ url_for('update_task', id=task.id) }}" role="button" class="btn btn-warning btn-sm">Update</a>
+          <a href="{{ url_for('delete_task', id=task.id) }}" role="button" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

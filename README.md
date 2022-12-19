@@ -7,7 +7,31 @@ This is done following the course **"100 Days of Code: The Complete Python Pro B
 
 ## Directories
 
-*tbd*
+```bash
+├── data-science
+│   ├── earnings-prediction
+│   ├── police-brutality
+│   └── space-race
+├── gui
+│   ├── breakout-game
+│   ├── disappearing-writing-app
+│   └── image-watermarker
+├── python-scripting
+│   ├── text-to-morse
+│   └── tictactoe
+├── web
+│   ├── web-development
+│   │   ├── api-based-site
+│   │   └── todo-list
+│   └── web-scraping
+├── README.md
+├── LICENSE
+└── .gitignore
+```
+
+## Progress
+
+This portfolio is unfinished.
 
 ## Programmer
 
